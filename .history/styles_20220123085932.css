@@ -1,0 +1,25 @@
+html, body{
+  height: 100%;
+}
+
+body{
+  font-family: Arial;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #222222;
+  color: #ffffff;
+}
+
+section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 9vmin;
+  text-align: center;
+}
+
+section div{
+  width: 5em;
+
+}

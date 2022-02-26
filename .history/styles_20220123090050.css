@@ -1,0 +1,35 @@
+html, body{
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Sprat';
+  src: url(sprat.woff2);
+}
+
+@keyframes inhale {
+  0%{
+    font-variation-settings: ;
+  }
+}
+body{
+  font-family: Arial;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #222222;
+  color: #ffffff;
+}
+
+section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 9vmin;
+  text-align: center;
+}
+
+section div{
+  width: 5em;
+
+}

@@ -1,0 +1,22 @@
+html, body{
+  height: 100%;
+}
+
+body{
+  font-family: Arial;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 9vmin;
+  text-align: center;
+}
+
+section

@@ -1,0 +1,54 @@
+html, body{
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Sprat';
+  src: url(sprat.woff2);
+}
+
+@keyframes inhale {
+  0%{
+    font-variation-settings: 'wght' 20, 'wdth' 120;
+  }
+  100%{
+    font-variation-settings: 'wght' 100, 'wdth' 120;
+  }
+}
+@keyframes exhale {
+  0%{
+    font-variation-settings: 'wght' 100, 'wdth' 120;
+  }
+  100%{
+    font-variation-settings: 'wght' 20, 'wdth' 120;
+  }
+}
+body{
+  font-family: Arial;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #222222;
+  color: #ffffff;
+}
+
+section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 9vmin;
+  text-align: center;
+}
+
+section div{
+  width: 5em;
+
+}
+
+section div.inhale{
+  animation: inhale 5s infinite alternate;
+}
+
+section div.exhale{
+  animation: exhale 5s infinite alternate;
+}
