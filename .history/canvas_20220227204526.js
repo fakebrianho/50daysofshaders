@@ -1,3 +1,4 @@
+let framerate = 30;var capturer = new CCapture( {  format: 'webm',  framerate,  name: 'noise_visualization',  quality: 100,} );
 
 const canvas = document.querySelector('div.canvas-holder canvas');
 const sandbox = new GlslCanvas(canvas);
@@ -19,6 +20,12 @@ const calcSize = function () {
 calcSize();
 
 window.addEventListener('resize', calcSize);
-sandbox.load(day01_05);
+sandbox.load(mistyGrid4);
 sandbox.setUniform('image2', 'k3.jpg');
 sandbox.setUniform('disp2', 'displacement1.jpg');
+sandbox.setUniform('water', 'artem-militonian-UYW6FZLlnL8-unsplash.jpg');
+sandbox.setUniform('image3', 'jb.jpg');
+sandbox.setUniform('image4', 'j2.jpg');
+sandbox.setUniform('jb', 'jb.jpg');
+sandbox.setUniform('j2', 'j2.jpg');
+sandbox.setUniform('fire', 'maxim-tajer-x3S1aGQNgro-unsplash.jpg')

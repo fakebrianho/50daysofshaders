@@ -20,7 +20,7 @@ const calcSize = function () {
 calcSize();
 
 window.addEventListener('resize', calcSize);
-sandbox.load(mistyGrid1);
+sandbox.load(mistyGrid4);
 sandbox.setUniform('image2', 'k3.jpg');
 sandbox.setUniform('disp2', 'displacement1.jpg');
 sandbox.setUniform('water', 'artem-militonian-UYW6FZLlnL8-unsplash.jpg');

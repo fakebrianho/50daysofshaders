@@ -254,11 +254,10 @@ mat2 rot(float a){
     float sa = sin(a);
     return mat2(ca, sa, -sa, ca);
 }
-float fcounter = 0.;
+
 vec3 fractal(vec3 p, float t){
     float s = 0.6 - exp(-fract(u_time)) * 0.4;
     for(float i = 0.0; i < 5.0; i++){
-        // fcounter = i;
         float t2 = t+i;
         p.xy *= rot(t2);
         p.yz *= rot(t2*0.7);
@@ -302,7 +301,7 @@ float map(vec3 p){
 //    return min(f, q);
     return d;
 }
-float counter = 0.;
+
 void main(void)
 {
     vec2 uv = -1. + 2. * v_texcoord;
@@ -314,8 +313,7 @@ void main(void)
     float i = 0.;
     float _d = 0.;
     
-    for(float i = 0.; i < 100.; i++){
-        counter = i;
+    for(i = 0.; i < 100.; i++){
         float d=abs(map(p));
         _d = d;
         if(d<0.001){
@@ -327,7 +325,7 @@ void main(void)
     
     vec3 color = vec3(0.0);
 //    vec3 col = vec3(p.x, p.y, 1.0);
-//    color += pow(1.-counter/100.0, 8.);
+//    color += pow(1.-i/100.0, 8.);
     color += at * 0.01 * vec3(1.0, 0.5, 0.3);
 //    color = mix(color, col, _d);
 //    color *= col;

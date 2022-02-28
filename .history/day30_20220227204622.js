@@ -314,7 +314,7 @@ void main(void)
     float i = 0.;
     float _d = 0.;
     
-    for(float i = 0.; i < 100.; i++){
+    for(i = 0.; i < 100.; i++){
         counter = i;
         float d=abs(map(p));
         _d = d;
