@@ -684,8 +684,6 @@ precision highp float;
 #endif
 
 #define MAX_STEPS 100
-#define SURF_DIST 0.001
-#define MAX_DIST 100.
 
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -737,11 +735,11 @@ vec3 norm(vec3 p){
 
 float RayMarch(vec3 ro, vec3 rd){
     float d0 = 0.0;        
-    for(int i = 0; i < MAX_STEPS; i++){
+    for(int i = 0; i < 100; i++){
         vec3 p = ro + rd * d0;
         float ds = map(p); 
         d0+=ds;
-        if(ds < SURF_DIST || d0 > MAX_DIST){
+        if(ds < 0.0001 || d0 > 100.){
             ds = 0.1;
             break;
         }

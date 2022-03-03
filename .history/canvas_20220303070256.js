@@ -20,6 +20,12 @@ const calcSize = function () {
 calcSize();
 
 window.addEventListener('resize', calcSize);
-sandbox.load(day03_04);
+sandbox.load(mistyGrid6);
 sandbox.setUniform('image2', 'k3.jpg');
 sandbox.setUniform('disp2', 'displacement1.jpg');
+sandbox.setUniform('water', 'artem-militonian-UYW6FZLlnL8-unsplash.jpg');
+sandbox.setUniform('image3', 'jb.jpg');
+sandbox.setUniform('image4', 'j2.jpg');
+sandbox.setUniform('jb', 'jb.jpg');
+sandbox.setUniform('j2', 'j2.jpg');
+sandbox.setUniform('fire', 'maxim-tajer-x3S1aGQNgro-unsplash.jpg')

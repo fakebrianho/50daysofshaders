@@ -683,10 +683,6 @@ const practice4 = `
 precision highp float;
 #endif
 
-#define MAX_STEPS 100
-#define SURF_DIST 0.001
-#define MAX_DIST 100.
-
 uniform vec2 u_resolution;
 uniform float u_time;
 
@@ -727,7 +723,7 @@ float map(vec3 p){
     float s1 = sdSphere(p, 0.75);
     float b1 = sdBox(p, vec3(0.4));
     float p1 = piece(p);
-    return p1;
+    return b1;
 }
 
 vec3 norm(vec3 p){
@@ -737,11 +733,11 @@ vec3 norm(vec3 p){
 
 float RayMarch(vec3 ro, vec3 rd){
     float d0 = 0.0;        
-    for(int i = 0; i < MAX_STEPS; i++){
+    for(int i = 0; i < 100; i++){
         vec3 p = ro + rd * d0;
         float ds = map(p); 
         d0+=ds;
-        if(ds < SURF_DIST || d0 > MAX_DIST){
+        if(ds < 0.0001 || d0 > 100.){
             ds = 0.1;
             break;
         }
@@ -757,14 +753,12 @@ void main(void){
     vec3 rd = normalize(vec3(uv, 1.0));
     
     float d = RayMarch(ro, rd);
+    vec3 p = ro + rd * d;
+    vec3 n = norm(p);
+    vec3 l = normalize(vec3(0.0, 1.0, 0.0));
     vec3 color = vec3(0.0);
-    if(d < 100.){
-        vec3 p = ro + rd * d;
-        vec3 n = norm(p);
-        vec3 l = normalize(vec3(0.0, 1.0, 0.0));
-        color += max(0.0, dot(n, l));
-    }
 
+    color += max(0.0, dot(n, l));
     gl_FragColor = vec4(color, 1.0);
 }
 `

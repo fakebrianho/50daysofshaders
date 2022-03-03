@@ -741,7 +741,7 @@ float RayMarch(vec3 ro, vec3 rd){
         vec3 p = ro + rd * d0;
         float ds = map(p); 
         d0+=ds;
-        if(ds < SURF_DIST || d0 > MAX_DIST){
+        if(ds < 0.0001 || d0 > 100.){
             ds = 0.1;
             break;
         }
