@@ -661,7 +661,7 @@ float RayMarch(vec3 ro, vec3 rd){
         vec3 p = ro + rd * d0;
         float ds = map(p); 
         d0 += ds;
-        if(ds < 0.001){
+        if(ds < 0.01){
             break;
         }
     }

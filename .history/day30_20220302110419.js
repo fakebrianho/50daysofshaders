@@ -628,12 +628,12 @@ float sdfBox(vec3 p, vec3 s){
 }
 
 float piece(vec3 p){
+    // p.xy += 0.1;
+    // p.yz += 0.1;
     for(float i = 0.0; i < 5.0; i++){
         float t1 = u_time*0.3*sin(i);
         p.xy *= rot(t1);
-        // p-=0.4;
-        p.zx *= rot(t1*0.3);
-        // p-= 0.2;
+        p-=0.4;
         p=abs(p);
         p-=0.1+0.1*i;
     }
@@ -661,7 +661,7 @@ float RayMarch(vec3 ro, vec3 rd){
         vec3 p = ro + rd * d0;
         float ds = map(p); 
         d0 += ds;
-        if(ds < 0.001){
+        if(ds < 0.01){
             break;
         }
     }

@@ -628,16 +628,9 @@ float sdfBox(vec3 p, vec3 s){
 }
 
 float piece(vec3 p){
-    for(float i = 0.0; i < 5.0; i++){
-        float t1 = u_time*0.3*sin(i);
-        p.xy *= rot(t1);
-        // p-=0.4;
-        p.zx *= rot(t1*0.3);
-        // p-= 0.2;
-        p=abs(p);
-        p-=0.1+0.1*i;
-    }
-    float b = sdfBox(p, vec3(0.2));
+    p.xy += 0.1;
+    p.yz += 0.1;
+    float b = sdfBox(p, vec3(0.7));
     return b;
 }
 
@@ -651,7 +644,7 @@ float map(vec3 p){
 }
 
 vec3 norm(vec3 p){
-    vec2 offset = vec2(0.01, 0.0);
+    vec2 offset = vec2(0.001, 0.0);
     return normalize(map(p) - vec3(map(p - offset.xyy), map(p-offset.yxy), map(p-offset.yyx)));
 }
 
@@ -661,7 +654,7 @@ float RayMarch(vec3 ro, vec3 rd){
         vec3 p = ro + rd * d0;
         float ds = map(p); 
         d0 += ds;
-        if(ds < 0.001){
+        if(ds < 0.01){
             break;
         }
     }
@@ -671,7 +664,7 @@ float RayMarch(vec3 ro, vec3 rd){
 void main(void){
     vec2 uv = -1. + 2. * v_texcoord;
     uv.x *= u_resolution.x / u_resolution.y;
-    vec3 ro = vec3(0.0, 1.0, -5.0);
+    vec3 ro = vec3(0.0, 1.0, -3.0);
     vec3 rd = normalize(vec3(uv, 1.0));
     float d = RayMarch(ro, rd);
     vec3 p = ro + rd * d;
